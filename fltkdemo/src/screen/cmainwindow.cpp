@@ -26,9 +26,9 @@
 #include <iostream>
 
 #include <FL/Fl.H>
-#include <FL/Fl_Window.H>
+#include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Box.H>
-
+#include "CMainScreen.h"
 using namespace std;
 CMainWindow::CMainWindow()
 {
@@ -43,22 +43,18 @@ CMainWindow::~CMainWindow()
 void CMainWindow::CreateMainWin()
 {
 	cout<<"CMainWindow::CreateMainWin"<<endl;
-	Fl_Window *window = new Fl_Window(1280,720);
-	Fl_Box *box = new Fl_Box(20,40,300,100,"Hello, World!");
-	box->box(FL_UP_BOX);
-	box->labelfont(FL_BOLD+FL_ITALIC);
-	box->labelsize(36);
-	box->labeltype(FL_SHADOW_LABEL);
+	Fl_Window *window = new Fl_Double_Window(1920,720);
 	
-	Fl_Box *box1 = new Fl_Box(24,80,300,100," World!");
-	//Fl_Widget* w = new Fl_Widget(400, 150, 400, 100, "widget");
-	box1->box(FL_NO_BOX);
-	box1->labelfont(FL_BOLD+FL_ITALIC);
-	box1->labelsize(36);
-	box1->labeltype(FL_SHADOW_LABEL);
 	
+	
+	MainScreen* mainscreen = new MainScreen(0,0,1920,720);
 	window->end();
+	
+	
+	
+	
 	window->show(0, NULL);
+	
 	Fl::run();
 }
 int CMainWindow::Run()

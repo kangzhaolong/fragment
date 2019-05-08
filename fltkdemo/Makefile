@@ -70,10 +70,7 @@ endif
 .PHONY: all clean run fulid
 
 
-fulid:
-	cd ./src/screen
-	fluid -c *.fl
-	cd -
+
 
 all: $(OBJS)
 	$(CXX) -o ./bin/$@  $^ ${CXXFLAGS}  ${CXXLIBS}
@@ -83,10 +80,12 @@ clean:
 	$(RM) -rf ./bin/*
 	$(RM) -rf ./src/*.o
 	$(RM) -rf ./src/screen/*.o
-	
 run:
 	./bin/all
-
+fulid:
+	cd ./src/screen
+	fluid -c *.fl
+	cd -
 %.o: %.cpp
 	$(CXX) -o $@ -c $<  ${CXXFLAGS}  ${CXXLIBS}
 	
