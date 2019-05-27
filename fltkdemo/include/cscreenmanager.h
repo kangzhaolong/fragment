@@ -44,6 +44,7 @@ class CScreenManager
 
 		virtual int Init();
 		virtual int Create();
+		virtual int Run();
 		virtual int Destroy();
 		
 	

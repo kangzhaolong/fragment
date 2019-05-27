@@ -57,8 +57,20 @@ int CScreenManager::Create()
 {
 	cout<<"CScreenManager Create"<<endl;
 	if(m_pMainWin!=NULL)
-	m_pMainWin->CreateMainWin();
-	m_pMainWin->Run();
+	{
+		
+		m_pMainWin->CreateMainWin();
+	}
+	
+	return 0;
+}
+int CScreenManager::Run()
+{
+	cout<<"CScreenManager Run"<<endl;
+	if(m_pMainWin!=NULL)
+	{
+		m_pMainWin->Run();
+	}
 	return 0;
 }
 int CScreenManager::Destroy()

@@ -1,0 +1,29 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0305
+header_name {.h}
+code_name {.cpp}
+class GResource {open
+} {
+  data Btn_Circle_Gray {public local filename {images/Button_Circle_Gray.png}
+  }
+  data Btn_Circle_Green {public local filename {images/Button_Circle_Green.png}
+  }
+  data Btn_Circle_Green_Selected {public local filename {images/Button_Circle_Green_selected.png}
+  }
+  data Btn_Circle_Red {public local filename {images/Button_Circle_Red.png}
+  }
+  data Btn_Circle_Red_Selected {public local filename {images/Button_Circle_Red_selected.png}
+  }
+  data Btn_FrontColor {public local filename {images/Button_FrontColor.png}
+  }
+  data Btn_Gray {public local filename {images/Button_Gray.png}
+  }
+  data Btn_Green {public local filename {images/Button_Green.png}
+  }
+  data Btn_Green_Selected {public local filename {images/Button_Green_Selected.png}
+  }
+  data Guage_left {public local filename {images/Guageleft.png}
+  }
+  data Background {public local filename {images/backgroud.png}
+  }
+}

@@ -4,13 +4,12 @@
 #define CMainScreen_h
 #include <FL/Fl.H>
 #include <FL/Fl_Group.H>
-#include <FL/Fl_Pack.H>
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Button.H>
 
-class MainScreen : public Fl_Group {
+class CMainScreen : public Fl_Group {
 public:
-  MainScreen(int X, int Y, int W, int H, const char *L = 0);
-  //void draw();
+  CMainScreen(int X, int Y, int W, int H, const char *L = 0);
+  void make_window();
 };
 #endif

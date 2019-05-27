@@ -39,3 +39,4 @@ class CMainWindow
 };
 
 #endif /* CMAINWINDOW_HPP */ 
+

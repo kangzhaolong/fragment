@@ -29,6 +29,22 @@
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Box.H>
 #include "CMainScreen.h"
+#include "CSettingScreen.h"
+#include "CButton_Custom.h"
+#include "ccontrolmybutton.h"
+#include  <FL/fl_draw.H>
+#include <FL/x.H>
+
+//#define FL_FLAT_BOX FL_FREE_BOXTYPE
+
+void xyz_draw(int x, int y, int w, int h, Fl_Color c) {
+	fl_color(0x373737);
+	fl_rectf(x, y, w, h);
+	//fl_color(0x00FF00);
+	//fl_rect(x, y, w, h);
+}
+
+
 using namespace std;
 CMainWindow::CMainWindow()
 {
@@ -43,11 +59,22 @@ CMainWindow::~CMainWindow()
 void CMainWindow::CreateMainWin()
 {
 	cout<<"CMainWindow::CreateMainWin"<<endl;
-	Fl_Window *window = new Fl_Double_Window(1920,720);
+	Fl::set_boxtype(FL_FLAT_BOX, xyz_draw, 1, 1, 2, 2);
 	
 	
 	
-	MainScreen* mainscreen = new MainScreen(0,0,1920,720);
+	Fl_Window *window = new Fl_Double_Window(1080,600);
+	
+	CMainScreen* mainscreen = new CMainScreen(0,0,1920,720);
+	
+	CSettingScreen* settingscreen = new CSettingScreen(0,0,1920,720);
+	settingscreen->hide();
+	//CMyButton* mybtn = new CMyButton(500,400,300,300,"Button 1");
+	//Fl_Button* btn = new Fl_Button(0,0,100,50,"show");
+	
+	CControlMyButton* mybutton = new CControlMyButton(0,100,100,50,"MyButton");
+	
+	
 	window->end();
 	
 	
@@ -55,9 +82,10 @@ void CMainWindow::CreateMainWin()
 	
 	window->show(0, NULL);
 	
-	Fl::run();
+	
 }
 int CMainWindow::Run()
 {
-	
+	Fl::run();
+	return 0;
 }

@@ -52,13 +52,17 @@ CXXLIBS += 	-L . -L ./lib\
 			-L$(ROOTFS)/lib/arm-linux-gnueabihf \
 			-L$(ROOTFS)/usr/lib/arm-linux-gnueabihf \
 			-L/opt/Rasp/cross_FLTK/lib  \
+			-ldbus-1 \
 			-lfltk -lxcb -lXfixes -lXext -lXau -lXdmcp -lbsd -lpthread -ldl -lm -lX11 -lfltk_forms  -lfltk_images -lfltk_jpeg -lstdc++
 else
 CXXFLAGS += -I . -I ./include -I ./include/screen -I ./include/control -I ./include/utility\
+			-I/usr/include/dbus-1.0\
+			-I/usr/lib/x86_64-linux-gnu/dbus-1.0/include \
 			-I/opt/Rasp/UbuntuHost/FLTK/usr/local/include\
 			-I/usr/include/freetype2 -I/usr/include/libpng16 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_THREAD_SAFE -D_REENTRANT
 CXXLIBS +=	-L . -L ./lib\
 			-L/opt/Rasp/UbuntuHost/FLTK/usr/local/lib \
+			-ldbus-1 \
 			-lfltk -lXrender -lXcursor -lXfixes -lXext -lXinerama -lpthread -ldl -lm -lX11 -lfltk_forms -lfltk_gl -lfltk_images -lfltk_jpeg -lstdc++ 
 endif
 
@@ -67,7 +71,7 @@ endif
 
 
 
-.PHONY: all clean run fulid
+.PHONY: all clean run fluid keyboard
 
 
 
@@ -80,12 +84,22 @@ clean:
 	$(RM) -rf ./bin/*
 	$(RM) -rf ./src/*.o
 	$(RM) -rf ./src/screen/*.o
+	$(MAKE) -C ./VControlPanel  clean
 run:
 	./bin/all
-fulid:
-	cd ./src/screen
-	fluid -c *.fl
-	cd -
+
+keyboard:
+	$(MAKE) -C ./VControlPanel  vk
+
+fluid:CButton_Custom.fl CButton_Custom.fl CButton_Custom.fl
+	fluid  -o src/screen/CMainScreen.cpp -h include/screen/CMainScreen.h  -c src/screen/CMainScreen.fl
+	fluid  -o src/screen/CButton_Custom.cpp -h include/screen/CButton_Custom.h -c src/screen/CButton_Custom.fl
+	fluid  -o src/screen/CSettingScreen.cpp -h include/screen/CSettingScreen.h -c src/screen/CSettingScreen.fl
+	fluid  -o src/control/CControlList.cpp -h include/control/CControlList.h -c src/control/CControlList.fl
+	fluid  -o src/control/CControlButton.cpp -h include/control/CControlButton.h -c src/control/CControlButton.fl
+	//  fluid  -o ../src/control/resource.cpp -h ../include/control/resource.h -c resource.fl
+
+
 %.o: %.cpp
 	$(CXX) -o $@ -c $<  ${CXXFLAGS}  ${CXXLIBS}
 	

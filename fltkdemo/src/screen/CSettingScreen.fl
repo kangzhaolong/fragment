@@ -1,0 +1,14 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0305
+header_name {.h}
+code_name {.cxx}
+widget_class CSettingScreen {open selected
+  xywh {67 85 515 290} type Double visible
+} {
+  Fl_Box {} {
+    image {../../resource/images/Button_Circle_Green.png} xywh {255 120 135 115}
+  }
+  Fl_Button {} {
+    image {../../resource/images/Button_Circle_Red.png} deimage {../../resource/images/Button_Circle_Gray.png} xywh {40 85 150 145} box NO_BOX
+  }
+}

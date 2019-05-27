@@ -5,89 +5,17 @@ i18n_include <libintl.h>
 i18n_function gettext
 header_name {.h}
 code_name {.cpp}
-widget_class MainScreen {
-  label Widget open
-  xywh {0 232 1920 720} type Double
-  class Fl_Group visible
+widget_class CMainScreen {open
+  xywh {40 57 1080 600} type Double box NO_BOX align 513 visible
 } {
-  Function {draw()} {return_type void
-  } {
-    code {printf("Hello, World!\\n");} {}
-    code {printf("Hello, World!\\n");} {}
-    code {Fl::draw();} {}
-  }
-  Function {make_Widget()} {open return_type void
+  Function {make_window()} {open
   } {}
-  Fl_Pack {} {open
-    image {../../resource/images/backgroud.png} xywh {5 5 1920 720} align 529
-  } {
-    Fl_Box {} {
-      label title
-      xywh {35 35 1920 60}
-    }
-    Fl_Pack {} {
-      label mainframe open
-      xywh {35 35 1920 720} type HORIZONTAL labeltype NO_LABEL align 529
-    } {
-      Fl_Box {} {
-        label gauge
-        image {../../resource/images/Guageleft.png} xywh {60 115 600 600}
-      }
-      Fl_Group {} {
-        label Gr
-        xywh {35 35 400 400}
-      } {
-        Fl_Pack {} {
-          label List
-          xywh {35 35 400 400} align 528
-        } {
-          Fl_Box {} {
-            label Item1
-            image {../../resource/images/list_item_50x400.png} deimage {../../resource/images/list_item_50x400_selected.png} xywh {35 35 400 50} align 512
-          }
-          Fl_Box {} {
-            label Item2
-            image {../../resource/images/list_item_50x400_selected.png} deimage {../../resource/images/list_item_50x400.png} xywh {35 85 400 50} align 512
-          }
-          Fl_Box {} {
-            label Item3
-            image {../../resource/images/list_item_50x400.png} deimage {../../resource/images/list_item_50x400_selected.png} xywh {35 135 400 50} align 512
-          }
-          Fl_Box {} {
-            label Item2
-            image {../../resource/images/list_item_50x400.png} deimage {../../resource/images/list_item_50x400_selected.png} xywh {35 185 400 50} align 512
-          }
-          Fl_Box {} {
-            label Item1
-            image {../../resource/images/list_item_50x400.png} deimage {../../resource/images/list_item_50x400_selected.png} xywh {35 235 400 50} align 512
-          }
-          Fl_Box {} {
-            label Item2
-            image {../../resource/images/list_item_50x400_selected.png} deimage {../../resource/images/list_item_50x400_selected.png} xywh {35 285 400 50} align 512
-          }
-          Fl_Box {} {
-            label Item3
-            image {../../resource/images/list_item_50x400.png} deimage {../../resource/images/list_item_50x400_selected.png} xywh {35 335 400 50} align 512
-          }
-          Fl_Box {} {
-            label Item2
-            image {../../resource/images/list_item_50x400.png} deimage {../../resource/images/list_item_50x400_selected.png} xywh {35 385 400 50} align 512
-          }
-        }
-      }
-      Fl_Pack {} {
-        label righ open
-        xywh {60 60 1895 695}
-      } {
-        Fl_Button {} {
-          label Btton1
-          image {../../resource/images/Button_Green.png} deimage {../../resource/images/Button_Gray.png} xywh {370 130 300 150} box NO_BOX labelsize 32 align 512
-        }
-        Fl_Button {} {
-          label Btton1
-          image {../../resource/images/Button_Green.png} deimage {../../resource/images/Button_Gray.png} xywh {375 135 300 150} box NO_BOX labelsize 32 align 512
-        }
-      }
-    }
+  Fl_Box {} {
+    label gauge
+    image {../../resource/images/Guageleft.png} xywh {0 0 600 600}
+  }
+  Fl_Button {} {
+    label Button
+    xywh {855 155 165 65} labelsize 32
   }
 }

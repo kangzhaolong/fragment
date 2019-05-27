@@ -111,6 +111,10 @@ int CMainApp::Destroy()
 int CMainApp::Run()
 {
     cout << "MainApp::Run!" << endl;
+    if(m_pScreenMgr!=NULL)
+    {
+        m_pScreenMgr->Run();
+    }
     return 0;
 }
 

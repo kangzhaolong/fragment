@@ -1,0 +1,105 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0305
+header_name {.h}
+code_name {.cpp}
+Function {main(int args,char** argv)} {open return_type int
+} {
+  code {DBusError dberr;  
+DBusConnection *dbconn;  
+DBusMessage *dbmsg;  
+char *text;  
+
+dbus_error_init (&dberr);  
+dbconn = dbus_bus_get (DBUS_BUS_SESSION, &dberr);  //代表连接到会话总线，如果需要连接到  
+if (dbus_error_is_set (&dberr)) {  
+	fprintf (stderr, "getting session bus failed: %s\\n", dberr.message);  
+	dbus_error_free (&dberr);  
+	return EXIT_FAILURE;  
+}} {}
+  code {CVKeyBoard v(0,0,300,170);
+v.show();
+Fl::run();} {selected
+  }
+}
+
+widget_class CVKeyBoard {open
+  xywh {334 755 300 170} type Double
+  code0 {\#include <dbus/dbus.h>}
+  code1 {\#include <stdio.h>}
+  code2 {\#include <stdlib.h>}
+  class Fl_Double_Window visible
+} {
+  Fl_Input m_Lable {
+    xywh {0 0 300 20}
+  }
+  Fl_Pack {} {open
+    xywh {0 20 300 150} type HORIZONTAL
+  } {
+    Fl_Pack {} {open
+      xywh {0 20 200 150}
+    } {
+      Fl_Button {} {
+        label UP
+        callback {printf("Key UP\\n");
+m_Lable->value("UP");}
+        xywh {0 20 100 50}
+      }
+      Fl_Pack {} {open
+        xywh {0 50 200 50} type HORIZONTAL
+      } {
+        Fl_Button {} {
+          label LEFT
+          callback {printf("Key LEFT\\n");
+m_Lable->value("LEFT");}
+          xywh {0 70 100 50}
+        }
+        Fl_Button {} {
+          label RIGHT
+          callback {printf("Key RIGHT\\n");
+m_Lable->value("RIGHT");}
+          xywh {100 70 100 50}
+        }
+      }
+      Fl_Button {} {
+        label DOWN
+        callback {printf("Key DOWN\\n");
+m_Lable->value("DOWN");}
+        xywh {0 120 100 50}
+      }
+    }
+    Fl_Pack {} {open
+      xywh {200 20 100 150}
+    } {
+      Fl_Button {} {
+        label A
+        callback {printf("Key A\\n");
+m_Lable->value("A");}
+        xywh {200 20 100 30}
+      }
+      Fl_Button {} {
+        label B
+        callback {printf("Key B\\n");
+m_Lable->value("B");}
+        xywh {200 50 100 30}
+      }
+      Fl_Button {} {
+        label C
+        callback {printf("Key C\\n");
+m_Lable->value("C");}
+        xywh {200 80 100 30}
+      }
+      Fl_Button {} {
+        label D
+        callback {printf("Key C\\n");
+m_Lable->value("D");}
+        xywh {200 110 100 30}
+      }
+      Fl_Button {} {
+        label E
+        callback {printf("Key E\\n");
+m_Lable->value("E");}
+        xywh {200 140 100 30}
+      }
+    }
+  }
+}
